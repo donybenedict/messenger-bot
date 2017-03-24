@@ -46,14 +46,20 @@ app.post('/webhook/', function (req, res) {
 			let text = JSON.stringify(event.postback.payload)
 			console.log('The event postback is' + text)
 			if (text == '"TRIVIA_QUIZ"') {
-				console.log('If loop is working' + text)
+				console.log('User Intent detected: Trivia Quiz')
+				startTriviaQuiz(sender)
 			}
-			sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
 			continue
 		}
 	}
 	res.sendStatus(200)
 })
+
+//Trivia Quiz
+function startTriviaQuiz(sender) {
+	sendTextMessage(sender, "Alright! Let's get started.")
+	sendTextMessage(sender, "Here's your first question")
+}
 
 const token = process.env.FB_PAGE_ACCESS_TOKEN
 

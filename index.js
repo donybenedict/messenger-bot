@@ -47,7 +47,6 @@ app.post('/webhook/', function (req, res) {
 			console.log('The event postback is' + text)
 			if (text == '"TRIVIA_QUIZ"') {
 				console.log('If loop is working' + text)
-				continue
 			}
 			sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
 			continue

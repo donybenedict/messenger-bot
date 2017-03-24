@@ -45,7 +45,7 @@ app.post('/webhook/', function (req, res) {
 		if (event.postback) {
 			let text = JSON.stringify(event.postback.payload)
 			console.log('The event postback is' + text)
-			if (text == "TRIVIA_QUIZ") {
+			if (text == '"TRIVIA_QUIZ"') {
 				console.log('If loop is working' + text)
 				continue
 			}

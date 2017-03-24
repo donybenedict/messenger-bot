@@ -44,6 +44,9 @@ app.post('/webhook/', function (req, res) {
 		}
 		if (event.postback) {
 			let text = JSON.stringify(event.postback)
+			if (text == 'TRIVIA_QUIZ') {
+				console.log ("THi sis good")
+			}
 			sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
 			continue
 		}
@@ -122,7 +125,6 @@ function sendGenericMessage(sender) {
 	})
 }
 
-// spin spin sugar
 app.listen(app.get('port'), function() {
 	console.log('running on port', app.get('port'))
 })
